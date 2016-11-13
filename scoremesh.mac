@@ -1,0 +1,34 @@
+#Creating a Scoring Mesh#
+
+/score/create/boxMesh mesh_1
+/score/mesh/boxSize 12.7 12.7 1. mm
+/score/mesh/nBin 30 30 30
+/score/mesh/translate/xyz 0. 0. 45.75. mm
+
+
+/score/quantity/nOfStep nOfStepGamma
+/score/filter/particle gammaFilter gamma
+
+/vis/disable
+/control/verbose 2
+/run/verbose 1
+/gun/particle e-
+/run/beamOn 1
+/vis/enable
+
+
+/score/close
+/score/list
+
+
+
+##################################################################
+
+
+
+
+
+/score/drawProjection mesh_1 nOfStepGamma
+
+/score/dumpQuantityToFile mesh_1 nOfStepGamma Gamma.txt
+
